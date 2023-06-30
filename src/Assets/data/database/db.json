@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "firstName": "Manavendra",
+      "lastName": "Nirgund",
+      "email": "manavjnirgund@gmail.com",
+      "password": "$2a$10$pAhQK2hYmHjMddy6D/t1LeLHNmqsAxdA2F34zyVXPnTfzHNKrJxT6",
+      "phone": "+918976014379",
+      "id": 10
+    },
+    {
+      "firstName": "Bharat",
+      "lastName": "Dhage",
+      "email": "bharatdhage98@gmail.com",
+      "password": "$2a$10$03u.2sjmPlDZhOoQ9sBIvOT8TXH49VdLOLexR12QUlGapqR0UMR5e",
+      "phone": "+918976014379",
+      "id": 12
+    },
+    {
+      "firstName": "Sneha",
+      "lastName": "Pramod",
+      "email": "snehaapramod@gmail.com",
+      "password": "$2a$10$Je9AVbFMpthUqPeiG3P/4uy8Y4ADpmivcCIS17ReflYKoaXrb4O1a",
+      "phone": "04567891230",
+      "id": 13
+    },
+    {
+      "firstName": "Niranjan",
+      "lastName": "Mahesh",
+      "email": "niranjan.m@gmail.com",
+      "password": "$2a$10$2S/csgF6VZnJjF73L9GgZuMruP6SS37JSvQQLYtM8mw8mFmkSzAeS",
+      "phone": "01234567890",
+      "id": 14
+    },
+    {
+      "firstName": "Nikit",
+      "lastName": "Periwal",
+      "email": "nikit.periwal@gmail.com",
+      "password": "$2a$10$K97dnH97GFyhPuoI6UCmleCVH6Rq65UFVgJOu3RbRDwMz0VAAgxEe",
+      "phone": "1234567890",
+      "id": 15
+    },
+    {
+      "firstName": "Jayaram",
+      "lastName": "Pranesh Rao",
+      "email": "jayaramp1959@gmail.com",
+      "password": "$2a$10$dbn3pCgPc7d2PJXuCxBOY.3m6zI9MSWhO2LCY4q3sdE0RuD8RW8qW",
+      "phone": "9920467959",
+      "id": 16
+    },
+    {
+      "firstName": "Manav",
+      "lastName": "Nirgund",
+      "email": "manavjnirgund@gmail.com",
+      "password": "$2a$10$5drrNqFjr9jknsz5Ma50Q.jGyCBNt/tSZFTtV5Nc7U/j/AVaytNkO",
+      "phone": "8976014379",
+      "id": 17
+    },
+    {
+      "firstName": "Manavendra",
+      "lastName": "Nirgund",
+      "email": "manavjnirgund@gmail.com",
+      "password": "$2a$10$p1lwHetM2lspgHDvgFU8DeJa0ptiMfSmVmnBE3kiaTgNY0vSt2DiS",
+      "phone": "+918976014379",
+      "id": 18
+    },
+    {
+      "firstName": "Hruthvik",
+      "lastName": "L Gowda",
+      "email": "hruthvik@gmail.com",
+      "password": "$2a$10$CY.m7BjmMefyT65EjjPhzOP36OuEko5jhlRzfCIGYRcCnxsageeRK",
+      "phone": "01597846230",
+      "id": 19
+    },
+    {
+      "firstName": "Manavendra",
+      "lastName": "Nirgund",
+      "email": "manavjnirgund@gmail.com",
+      "password": "$2a$10$V/E.dj.joKAWO0DTMGHwsOoyosy6l8l.gkhmaiehUFkpXfnZsbvbW",
+      "phone": "+918976014379",
+      "id": 20
+    }
+  ]
+}

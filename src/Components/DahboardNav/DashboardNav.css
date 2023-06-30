@@ -1,0 +1,24 @@
+.nav-button {
+    font-size: 16px;
+    border: 2px solid transparent;
+    transform: scale(1);
+    transition: font-size 0.3s ease, border 0.3s ease;
+    border-radius: 10px;
+    position: relative;
+    top: 50px;
+    left: -20px;
+}
+/* 
+.nav-button:hover {
+    transform: scale(1);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+    border: 2px solid #fff;
+    transform-origin: bottom;
+    border-radius: 10px;
+}
+
+.nav-button:active {
+    border: 2px solid #fff;
+    border-radius: 10px;
+} */
