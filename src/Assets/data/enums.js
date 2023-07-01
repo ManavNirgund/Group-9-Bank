@@ -11,6 +11,11 @@ export const roles = {
     Female: 'Female',
   }
 
+  export const account = {
+    SAVINGS: 'Savings',
+    CURRENT: 'Current'
+  }
+
   export const items = [
     { id: 1, name: "Transaction", icon: <FavoriteIcon />, to: "/transaction" },
     { id: 2, name: "Loan", icon: <ProductionQuantityLimitsIcon />, to: "/loan" },

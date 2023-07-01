@@ -35,6 +35,7 @@ const DashboardNav = () => {
   const [userTypes, setUserTypes] = useState("");
   const [firstName, setFirstName] = useState("");
 
+
   useEffect(() => {
     // Retrieve email and token from local storage
     const email = localStorage.getItem("email");
@@ -52,8 +53,10 @@ const DashboardNav = () => {
       .then((data) => {
         // Update the state with the API response
         setFirstName(data.firstname);
-        setUserType(data.authorities[0].authority);
+        // setUserType(data.authorities[0].authority);
+        setUserType("CUSTOMER")
       })
+
       .catch((error) => {
         console.error("Error fetching API data:", error);
       });
@@ -79,7 +82,7 @@ const DashboardNav = () => {
     ];
 
     // Simulating the user type based on the role
-    const role = "Customer";
+    const role = "CUSTOMER";
 
     // Update the state with the static data and user type
     setApiData(apiData);
@@ -209,7 +212,8 @@ const DashboardNav = () => {
           }}
         >
           {/* Welcome {userType === "Admin" ? "Admin" : "Customer"} */}
-          Welcome {userType === "CUSTOMER" ? firstName : "Admin"}
+          {/* Welcome {userType === "CUSTOMER" ? firstName : "Admin"} */}
+          
         </Button>
       </div>
       {/* Conditionally render the tables based on user role */}

@@ -9,11 +9,11 @@ import {
   Typography,
   CircularProgress,
 } from "@mui/material";
-import { PersonAdd } from "@mui/icons-material";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../Components/Service/utilities/auth";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
+import { PersonAdd } from "@mui/icons-material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
 
@@ -65,6 +65,7 @@ function Signin() {
         })
         .catch((res) => {
           alert(res);
+          setIsSigninDisabled(true);
         });
     },
   });
