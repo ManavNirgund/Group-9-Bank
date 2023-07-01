@@ -81,20 +81,57 @@ export default function Header() {
               <MDBNavbarLink href="#">About</MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
+          <MDBNavbarNav className="mx-auto">
+            <MDBNavbarItem>
+              <MDBInputGroup>
+                <MDBInput type="text" />
+                <MDBBtn>Search</MDBBtn>
+              </MDBInputGroup>
+            </MDBNavbarItem>
+          </MDBNavbarNav>
           <MDBNavbarNav>
             <MDBNavbarItem>
-
-              <MDBNavbarNav>
-                <MDBNavbarItem>
-                  {!auth.jwt && (
-                    <MDBNavbarLink>
-                      <Link to={"signin"} style={{ color: "white" }}>
+              {/* <MDBDropdown>
+                <MDBDropdownToggle
+                  tag="a"
+                  className="nav-link"
+                  style={{ color: "white" }}
+                >
+                  Login/Register
+                </MDBDropdownToggle>
+                <MDBDropdownMenu>
+                  {!jwt && (
+                    <MDBDropdownItem>
+                      <Button variant="text" onClick={signinClicked}>
                         Login
-                      </Link>
-                    </MDBNavbarLink>
+                      </Button>
+                    </MDBDropdownItem>
                   )}
-                </MDBNavbarItem>
-                <MDBNavbarItem>
+                  {jwt && (
+                    <MDBDropdownItem>
+                      <Button variant="text" onClick={signinClicked}>
+                        Login
+                      </Button>
+                    </MDBDropdownItem>
+                  )}
+
+                  <Button variant="text" onClick={regitserClicked}>
+                    Register
+                  </Button>
+                </MDBDropdownMenu>
+              </MDBDropdown> */}
+
+                <MDBNavbarNav>
+                  <MDBNavbarItem>
+                    {!auth.jwt && (
+                      <MDBNavbarLink>
+                        <Link to={"signin"} style={{ color: "white" }}>
+                          Login
+                        </Link>
+                      </MDBNavbarLink>
+                    )}
+                  </MDBNavbarItem>
+                  <MDBNavbarItem>
                   {!auth.jwt && (
                     <MDBNavbarLink>
                       <Link to={"register"} style={{ color: "white" }}>
@@ -103,7 +140,7 @@ export default function Header() {
                     </MDBNavbarLink>
                   )}
                 </MDBNavbarItem>
-              </MDBNavbarNav>
+                </MDBNavbarNav>
 
               {/* <MDBNavbarNav>
                 

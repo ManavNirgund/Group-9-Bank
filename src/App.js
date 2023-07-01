@@ -42,9 +42,9 @@ function App() {
           <Route
             path="/loan"
             element={
+              <RequireAuth>
                 <Loan />
-              // <RequireAuth>
-              // </RequireAuth>
+              </RequireAuth>
             }
           ></Route>
           <Route

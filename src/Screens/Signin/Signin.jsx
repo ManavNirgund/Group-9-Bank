@@ -45,20 +45,19 @@ function Signin() {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       setIsSigninDisabled(true);
-      
       axios
         .post("http://localhost:8080/api/v1/auth/login", values, {
           headers: {
-            'Origin': "http://localhost:3000/api/v1/auth/login",
             "Content-Type": "application/json",
           },
         })
         .then((res) => {
           setIsSigninDisabled(false);
-
           const token = res.data.access_token;
+
           console.log(token);
           localStorage.setItem("token", token);
+          localStorage.setItem('email',values.email);
           console.log(values.email, values.password, token);
           auth.login(values.email, values.password, token);
           formik.resetForm();
@@ -66,7 +65,6 @@ function Signin() {
         })
         .catch((res) => {
           alert(res);
-          setIsSigninDisabled(false);
         });
     },
   });
@@ -116,7 +114,7 @@ function Signin() {
                 }
                 helperText={formik.touched.email && formik.errors.email}
                 InputProps={{
-                  style: { color: "antiquewhite" },
+                  style: { color: "antiquewhite" }, // Set the desired text color
                 }}
                 InputLabelProps={{
                   style: { color: "antiquewhite" },
@@ -124,7 +122,7 @@ function Signin() {
                 sx={{
                   "& .MuiOutlinedInput-root": {
                     "& fieldset": {
-                      borderColor: "antiquewhite",
+                      borderColor: "antiquewhite", // Set the desired outline color
                     },
                   },
                 }}
