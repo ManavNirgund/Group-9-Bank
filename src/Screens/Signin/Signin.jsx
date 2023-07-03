@@ -57,7 +57,7 @@ function Signin() {
 
           console.log(token);
           localStorage.setItem("token", token);
-          localStorage.setItem('email',values.email);
+          localStorage.setItem("email",values.email);
           console.log(values.email, values.password, token);
           auth.login(values.email, values.password, token);
           formik.resetForm();
@@ -65,7 +65,7 @@ function Signin() {
         })
         .catch((res) => {
           alert(res);
-          setIsSigninDisabled(true);
+          setIsSigninDisabled(false);
         });
     },
   });

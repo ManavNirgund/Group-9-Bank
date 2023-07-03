@@ -12,6 +12,7 @@ import { AuthProvider } from "./Components/Service/utilities/auth";
 import Transaction from "./Screens/Transaction/Transaction";
 import CreditCard from "./Screens/CreditCard/CreditCard";
 import GiftCard from "./Screens/GiftCard/GiftCard";
+import Locker from "./Screens/Locker/Locker";
 
 function App() {
   return (
@@ -34,33 +35,41 @@ function App() {
           <Route
             path="/transaction"
             element={
-              <RequireAuth>
+              // <RequireAuth>
+              // </RequireAuth>
                 <Transaction />
-              </RequireAuth>
             }
           ></Route>
           <Route
             path="/loan"
             element={
-              <RequireAuth>
+              // <RequireAuth>
+              // </RequireAuth>
                 <Loan />
-              </RequireAuth>
             }
           ></Route>
           <Route
             path="/credit"
             element={
-              <RequireAuth>
+              // <RequireAuth>
+              // </RequireAuth>
                 <CreditCard />
-              </RequireAuth>
             }
           ></Route>
           <Route
             path="/gift"
             element={
-              <RequireAuth>
+              // <RequireAuth>
+              // </RequireAuth>
                 <GiftCard />
-              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/locker"
+            element={
+              // <RequireAuth>
+              // </RequireAuth>
+                <Locker />
             }
           ></Route>
         </Routes>

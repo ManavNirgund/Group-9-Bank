@@ -36,31 +36,31 @@ const DashboardNav = () => {
   const [firstName, setFirstName] = useState("");
 
 
-  useEffect(() => {
-    // Retrieve email and token from local storage
-    const email = localStorage.getItem("email");
-    const token = localStorage.getItem("token");
+  // useEffect(() => {
+  //   // Retrieve email and token from local storage
+  //   const email = localStorage.getItem("email");
+  //   const token = localStorage.getItem("token");
 
-    // Call the API using the retrieved email and token
-    axios.get(`http://localhost:8080/user/email/${email}`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      withCredentials: true,
-    })
-      .then((response) => response.data)
-      .then((data) => {
-        // Update the state with the API response
-        setFirstName(data.firstname);
-        // setUserType(data.authorities[0].authority);
-        setUserType("CUSTOMER")
-      })
+  //   // Call the API using the retrieved email and token
+  //   axios.get(`http://localhost:8080/user/email/${email}`, {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //     withCredentials: true,
+  //   })
+  //     .then((response) => response.data)
+  //     .then((data) => {
+  //       // Update the state with the API response
+  //       setFirstName(data.firstname);
+  //       // setUserType(data.authorities[0].authority);
+  //       setUserType("CUSTOMER")
+  //     })
 
-      .catch((error) => {
-        console.error("Error fetching API data:", error);
-      });
-  }, []);
+  //     .catch((error) => {
+  //       console.error("Error fetching API data:", error);
+  //     });
+  // }, []);
 
   useEffect(() => {
     // Retrieve email and token from local storage
