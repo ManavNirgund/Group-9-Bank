@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-// import axios from "axios";
+import axios from "axios";
 // import { useAuth } from "../auth";
 
 const signup_url = "http://localhost:8090/authentication/api/v1/auth/register";
