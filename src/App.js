@@ -13,6 +13,7 @@ import Transaction from "./Screens/Transaction/Transaction";
 import CreditCard from "./Screens/CreditCard/CreditCard";
 import GiftCard from "./Screens/GiftCard/GiftCard";
 import Locker from "./Screens/Locker/Locker";
+import About from "./Components/About/About";
 
 function App() {
   return (
@@ -43,36 +44,37 @@ function App() {
           <Route
             path="/loan"
             element={
-              // <RequireAuth>
-              // </RequireAuth>
+              <RequireAuth>
                 <Loan />
+              </RequireAuth>
             }
           ></Route>
           <Route
             path="/credit"
             element={
-              // <RequireAuth>
-              // </RequireAuth>
+              <RequireAuth>
                 <CreditCard />
+              </RequireAuth>
             }
           ></Route>
           <Route
             path="/gift"
             element={
+                <GiftCard />
               // <RequireAuth>
               // </RequireAuth>
-                <GiftCard />
             }
           ></Route>
           <Route
             path="/locker"
             element={
-              // <RequireAuth>
-              // </RequireAuth>
+              <RequireAuth>
                 <Locker />
+              </RequireAuth>
             }
           ></Route>
         </Routes>
+        <About/>
       </AuthProvider>
     </div>
   );

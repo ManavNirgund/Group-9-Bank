@@ -21,6 +21,7 @@ import {
 } from "@mui/material";
 import { PersonAdd } from "@mui/icons-material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import dashboardImage from "../../Assets/Images/dashboard.svg";
 import { account } from "../../Assets/data/enums";
 // import { Table } from "react-bootstrap";
 
@@ -499,6 +500,10 @@ const Loan = () => {
       )}
       {/* Conditionally render the tables based on user role */}
       {userType === "CUSTOMER" ? customerTable : adminTable}
+
+      {isCreateLoanPressed == false && (
+          <img src={dashboardImage} alt="Dashboard image" />
+        )}
     </div>
   );
 };

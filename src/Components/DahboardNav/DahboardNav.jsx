@@ -9,7 +9,6 @@ import {
   TableRow,
   Table
 } from "@mui/material";
-// import { Table } from "react-bootstrap";
 
 import "./DashboardNav.css";
 import axios from "axios";
@@ -68,18 +67,18 @@ const DashboardNav = () => {
     const token = localStorage.getItem("token");
 
     // Simulating API call by setting static data
-    const apiData = [
-      {
-        id: 1,
-        fromAccount: "Account A",
-        toAccount: "Account B",
-        amount: 100,
-        type: "Transfer",
-        status: "Pending",
-        createdAt: "2023-06-29",
-      },
-      // Add more data here...
-    ];
+    // const apiData = [
+    //   {
+    //     id: 1,
+    //     fromAccount: "Account A",
+    //     toAccount: "Account B",
+    //     amount: 100,
+    //     type: "Transfer",
+    //     status: "Pending",
+    //     createdAt: "2023-06-29",
+    //   },
+    //   // Add more data here...
+    // ];
 
     // Simulating the user type based on the role
     const role = "CUSTOMER";
@@ -104,7 +103,53 @@ const DashboardNav = () => {
       status: "Pending",
       createdAt: "2023-06-29",
     },
+    {
+      id: 2,
+      fromAccount: "Account A",
+      toAccount: "Account B",
+      amount: 100,
+      type: "Transfer",
+      status: "Pending",
+      createdAt: "2023-06-29",
+    },
+    {
+      id: 3,
+      fromAccount: "Account A",
+      toAccount: "Account B",
+      amount: 100,
+      type: "Transfer",
+      status: "Pending",
+      createdAt: "2023-06-29",
+    },
+    {
+      id: 4,
+      fromAccount: "Account A",
+      toAccount: "Account B",
+      amount: 100,
+      type: "Transfer",
+      status: "Pending",
+      createdAt: "2023-06-29",
+    },
+    {
+      id: 5,
+      fromAccount: "Account A",
+      toAccount: "Account B",
+      amount: 100,
+      type: "Transfer",
+      status: "Pending",
+      createdAt: "2023-06-29",
+    },
+    {
+      id: 6,
+      fromAccount: "Account A",
+      toAccount: "Account B",
+      amount: 100,
+      type: "Transfer",
+      status: "Pending",
+      createdAt: "2023-06-29",
+    },
     // Add more data here...
+    // Unrender the cartoon after 6 rows of table data
   ]);
 
   const adminTable = (

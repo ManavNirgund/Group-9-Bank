@@ -17,14 +17,22 @@ import {
   MDBIcon,
   MDBCollapse,
 } from "mdb-react-ui-kit";
+import marathaBank from '../../Assets/Images/maratha-bank.png'
+import { appName } from "../../Assets/data/enums";
+
+// import { Link } from "react-scroll"; 
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../Service/utilities/auth";
+import { products } from "../../Assets/data/enums";
+import DropdownMenu from "../DropdownMenu/DropdownMenu";
+import ScrollToAbout from "../ScrollToAbout/ScrollToAbout";
 
 export default function Header() {
   const [showBasic, setShowBasic] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const nav = useNavigate();
   const auth = useAuth();
@@ -50,12 +58,13 @@ export default function Header() {
     <MDBNavbar
       expand="lg"
       dark
-      style={{ backgroundColor: "rgba(135, 0, 64, 0.6)" }}
+      style={{ backgroundColor: "rgb(135, 0, 64)" }}
     >
       <MDBContainer fluid>
         <MDBNavbarBrand href="#">
           <Link to={"/"} style={{ color: "white" }}>
-            Group 9 Bank
+            <img src={marathaBank} width= "50rem" height="auto"/>
+           {appName.title}
           </Link>
         </MDBNavbarBrand>
 
@@ -71,14 +80,16 @@ export default function Header() {
         <MDBCollapse navbar show={showBasic}>
           <MDBNavbarNav>
             <MDBNavbarItem>
-              <MDBNavbarLink active aria-current="page">
-                <Link to={"products"} style={{ color: "white" }}>
-                  Explore Products
-                </Link>
-              </MDBNavbarLink>
+              <DropdownMenu />
             </MDBNavbarItem>
+
             <MDBNavbarItem>
-              <MDBNavbarLink href="#">About</MDBNavbarLink>
+              {/* <MDBNavbarLink href="#">
+                    <Link to="about" smooth={true} duration={300} style={{color: "white"}}>
+                      About
+                    </Link>
+              </MDBNavbarLink> */}
+              <ScrollToAbout />
             </MDBNavbarItem>
           </MDBNavbarNav>
           <MDBNavbarNav className="mx-auto">
@@ -121,17 +132,17 @@ export default function Header() {
                 </MDBDropdownMenu>
               </MDBDropdown> */}
 
-                <MDBNavbarNav>
-                  <MDBNavbarItem>
-                    {!auth.jwt && (
-                      <MDBNavbarLink>
-                        <Link to={"signin"} style={{ color: "white" }}>
-                          Login
-                        </Link>
-                      </MDBNavbarLink>
-                    )}
-                  </MDBNavbarItem>
-                  <MDBNavbarItem>
+              <MDBNavbarNav>
+                <MDBNavbarItem>
+                  {!auth.jwt && (
+                    <MDBNavbarLink>
+                      <Link to={"signin"} style={{ color: "white" }}>
+                        Login
+                      </Link>
+                    </MDBNavbarLink>
+                  )}
+                </MDBNavbarItem>
+                <MDBNavbarItem>
                   {!auth.jwt && (
                     <MDBNavbarLink>
                       <Link to={"register"} style={{ color: "white" }}>
@@ -140,7 +151,7 @@ export default function Header() {
                     </MDBNavbarLink>
                   )}
                 </MDBNavbarItem>
-                </MDBNavbarNav>
+              </MDBNavbarNav>
 
               {/* <MDBNavbarNav>
                 

@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { PersonAdd } from "@mui/icons-material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import dashboardImage from "../../Assets/Images/dashboard.svg";
 // import { Table } from "react-bootstrap";
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -713,6 +714,11 @@ const CreditCard = () => {
       )}
       {/* Conditionally render the tables based on user role */}
       {userType === "CUSTOMER" ? customerTable : adminTable}
+      {isApplyCreditPressed == false && 
+      isMakePaymentCreditPressed == false && 
+      isPayCreditPressed == false && (
+          <img src={dashboardImage} alt="Dashboard image" />
+        )}
     </div>
   );
 };

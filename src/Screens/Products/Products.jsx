@@ -2,7 +2,7 @@ import React from "react";
 import { CardContent, CardMedia, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { Product } from "./ProductsItem";
-import { items } from "../../Assets/data/enums";
+import { products } from "../../Assets/data/enums";
 
 import "./Products.css";
 
@@ -26,7 +26,7 @@ const Products = () => {
           "-ms-overflow-style": "none",
         }}
       >
-        {items.map((item) => {
+        {products.map((item) => {
           return (
             <Product key={item.id} component={Link} to={item.to}>
               <CardMedia>{item.icon}</CardMedia>

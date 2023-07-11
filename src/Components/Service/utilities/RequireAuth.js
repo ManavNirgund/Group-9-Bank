@@ -8,7 +8,9 @@ export const RequireAuth = ({ children }) => {
   console.log("Token: ", auth.jwt);
 
   if (!auth.jwt) {
-    return <Navigate to="/signin" state={{ path: location.pathname }} />;
+    return (
+      <Navigate to="/signin" state={{ path: location.pathname }} />
+    );
   }
 
   return children;

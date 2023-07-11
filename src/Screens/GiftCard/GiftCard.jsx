@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import { PersonAdd } from "@mui/icons-material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import dashboardImage from "../../Assets/Images/dashboard.svg";
 
 import * as Yup from "yup";
 import { useFormik } from "formik";
@@ -225,8 +226,8 @@ const GiftCard = () => {
             border: "none",
             marginRight: "8px",
             marginBottom: "8px",
-            color: isApplyGiftPressed === 1 ? "black" : "white",
-            backgroundColor: isApplyGiftPressed === 1 ? "antiquewhite" : "inherit",
+            color: isApplyGiftPressed === true ? "black" : "white",
+            backgroundColor: isApplyGiftPressed === true ? "antiquewhite" : "inherit",
             "&:hover": {
               border: "none",
               backgroundColor: "rgba(0, 0, 0, 0)",
@@ -393,6 +394,9 @@ const GiftCard = () => {
       )}
       {/* Conditionally render the tables based on user role */}
       {userType === "CUSTOMER" ? customerTable : adminTable}
+      {isApplyGiftPressed == false && (
+          <img src={dashboardImage} alt="Dashboard image" />
+        )}
     </div>
   );
 };
