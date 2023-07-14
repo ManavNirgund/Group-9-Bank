@@ -80,7 +80,7 @@ const Transaction = () => {
   const postTransactionAccount = (values) => {
     setIsSubmitDisabled(true);
     axios
-      .post(`http://localhost:8090/authentication/api/v1/auth/register`, values, {
+      .post(`http://localhost:8090/transaction/accounts`, values, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
