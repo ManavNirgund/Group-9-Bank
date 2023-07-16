@@ -79,11 +79,11 @@ const Locker = () => {
 
   return (
     <div className="tabless">
-      <div>
+      {/* <div>
         <Typography color="beige" variant="h5">
           Welcome {name}
         </Typography>
-      </div>
+      </div> */}
       <Button
         variant={selectedButton === true ? "contained" : "outlined"}
         onClick={() => {
@@ -91,17 +91,15 @@ const Locker = () => {
           setIsReserveLockerPressed(true);
         }}
         sx={{
-          borderColor: "beige",
+          border: "2px solid #870040",
           marginTop: "0.5rem",
           marginBottom: "0.5rem",
           marginRight: "8px",
-          color: selectedButton === true ? "black" : "white",
+          color: "black",
           fontSize: "1rem",
           backgroundColor: selectedButton === true ? "antiquewhite" : "inherit",
           "&:hover": {
-            border: "none",
-            backgroundColor: "rgba(0, 0, 0, 0)",
-            color: "white",
+            border: "none"
           },
         }}
       >
@@ -114,7 +112,7 @@ const Locker = () => {
           sx={{
             marginTop: "-2rem",
             marginBottom: "1rem",
-            backgroundColor: "rgba(173, 2, 83, 0.65)",
+            backgroundColor: "rgba(173, 2, 83, 1)",
             borderRadius: "10px",
             boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
           }}

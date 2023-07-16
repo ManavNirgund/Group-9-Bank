@@ -323,28 +323,26 @@ const Loan = () => {
       <div>
         {/* Welcome {userType === "Admin" ? "Admin" : "Customer"} */}
         {/* Welcome {userType === "CUSTOMER" ? firstName : "Admin"} */}
-        <Typography color="beige" variant="h5">
+        {/* <Typography color="beige" variant="h5">
           Welcome {name}
-        </Typography>
+        </Typography> */}
       </div>
       <Button
-        variant={selectedButton === 1 ? "contained" : "outlined"}
+        variant={isCreateLoanPressed === true ? "contained" : "outlined"}
         onClick={() => {
-          handleButtonClick(1);
+          // handleButtonClick(1);
           setIsCreateLoanPressed(true);
         }}
         sx={{
-          border: "none",
+          border: "2px solid #870040",
           marginTop: "0.5rem",
           marginBottom: "0.5rem",
           marginRight: "8px",
-          color: selectedButton === 1 ? "black" : "white",
+          color: "black",
           fontSize: "1rem",
-          backgroundColor: selectedButton === 1 ? "antiquewhite" : "inherit",
+          backgroundColor: isCreateLoanPressed === true ? "antiquewhite" : "inherit",
           "&:hover": {
             border: "none",
-            backgroundColor: "rgba(0, 0, 0, 0)",
-            color: "white",
           },
         }}
       >
@@ -356,7 +354,7 @@ const Loan = () => {
           sx={{
             marginTop: "-2rem",
             marginBottom: "1rem",
-            backgroundColor: "rgba(173, 2, 83, 0.65)",
+            backgroundColor: "rgb(173, 2, 83)",
             borderRadius: "10px",
             boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
           }}

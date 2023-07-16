@@ -320,16 +320,15 @@ const CreditCard = () => {
             setIsPayCreditPressed(false);
           }}
           sx={{
-            border: "none",
+            border: "2px solid #870040",
             marginRight: "8px",
             marginBottom: "8px",
-            color: isApplyCreditPressed === true ? "black" : "white",
+            marginTop: "1vh",
+            color: "black",
             backgroundColor:
               isApplyCreditPressed === true ? "antiquewhite" : "inherit",
             "&:hover": {
               border: "none",
-              backgroundColor: "rgba(0, 0, 0, 0)",
-              color: "white",
             },
           }}
         >
@@ -342,16 +341,15 @@ const CreditCard = () => {
             setIsApplyCreditPressed(false);
           }}
           sx={{
-            border: "none",
+            border: "2px solid #870040",
+            marginTop: "1vh",
             marginRight: "8px",
             marginBottom: "8px",
-            color: isPayCreditPressed === true ? "black" : "white",
+            color: "black",
             backgroundColor:
               isPayCreditPressed === true ? "antiquewhite" : "inherit",
             "&:hover": {
-              border: "none",
-              backgroundColor: "rgba(0, 0, 0, 0)",
-              color: "white",
+              border: "none"
             },
           }}
         >
@@ -362,7 +360,7 @@ const CreditCard = () => {
         <Container
           maxWidth="sm"
           sx={{
-            backgroundColor: "rgba(173, 2, 83, 0.65)",
+            backgroundColor: "rgba(173, 2, 83, 1)",
             borderRadius: "10px",
             boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
           }}
@@ -512,7 +510,7 @@ const CreditCard = () => {
         <Container
           maxWidth="sm"
           sx={{
-            backgroundColor: "rgba(173, 2, 83, 0.65)",
+            backgroundColor: "rgb(173, 2, 83)",
             borderRadius: "10px",
             boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
           }}

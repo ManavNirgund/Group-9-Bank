@@ -36,9 +36,9 @@ function App() {
           <Route
             path="/transaction"
             element={
-              // <RequireAuth>
-              // </RequireAuth>
+              <RequireAuth>
                 <Transaction />
+              </RequireAuth>
             }
           ></Route>
           <Route
@@ -60,16 +60,16 @@ function App() {
           <Route
             path="/gift"
             element={
+              <RequireAuth>
                 <GiftCard />
-              // <RequireAuth>
-              // </RequireAuth>
+              </RequireAuth>
             }
           ></Route>
           <Route
             path="/locker"
             element={
               <RequireAuth>
-                <Locker />
+              <Locker />
               </RequireAuth>
             }
           ></Route>

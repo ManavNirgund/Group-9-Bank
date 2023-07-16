@@ -223,15 +223,14 @@ const GiftCard = () => {
           variant={isApplyGiftPressed === 1 ? "contained" : "outlined"}
           onClick={() => setIsApplyGiftPressed(true)}
           sx={{
-            border: "none",
+            border: "2px solid #870040",
+            marginTop: "1vh",
             marginRight: "8px",
             marginBottom: "8px",
-            color: isApplyGiftPressed === true ? "black" : "white",
+            color: "black",
             backgroundColor: isApplyGiftPressed === true ? "antiquewhite" : "inherit",
             "&:hover": {
               border: "none",
-              backgroundColor: "rgba(0, 0, 0, 0)",
-              color: "white",
             },
           }}
         >
@@ -243,7 +242,7 @@ const GiftCard = () => {
         <Container
           maxWidth="sm"
           sx={{
-            backgroundColor: "rgba(173, 2, 83, 0.65)",
+            backgroundColor: "rgba(173, 2, 83, 1)",
             borderRadius: "10px",
             boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
           }}
