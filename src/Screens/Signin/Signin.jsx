@@ -50,7 +50,7 @@ function Signin() {
       .email("Email does not look like this..."),
     password: Yup.string()
       .required("Please enter your password")
-      .min(8, "Password should be atleast 8 characters"),
+      .min(8, "Password should be at least 8 characters"),
   });
 
   const formik = useFormik({
@@ -59,20 +59,16 @@ function Signin() {
     onSubmit: (values) => {
       setIsSigninDisabled(true);
       axios
-        .post(
-          "http://localhost:8090/authentication/api/v1/auth/login",
-          values,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Methods":
-                "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-              "Access-Control-Allow-Headers":
-                "Origin, X-Requested-With, Content-Type, Accept",
-            },
-          }
-        )
+        .post("http://localhost:8090/authentication/api/v1/auth/login", values, {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods":
+              "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+            "Access-Control-Allow-Headers":
+              "Origin, X-Requested-With, Content-Type, Accept",
+          },
+        })
         .then((res) => {
           setIsSigninDisabled(false);
           const token = res.data.access_token;
@@ -93,150 +89,154 @@ function Signin() {
   });
 
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
-      <Container
-        maxWidth="sm"
-        sx={{
-          marginTop: "3rem",
-          marginBottom: "3rem",
-          backgroundColor: "rgb(173, 2, 83)",
-          borderRadius: "10px",
-          boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
-        }}
-      >
-        <Box
-          component="form"
-          noValidate
-          className="mt-5 p-5 pt-5"
-          onSubmit={formik.handleSubmit}
+    <Grid container spacing={0}>
+      <Grid item xs={12} md={6}>
+        <img
+          src={flatGif}
+          alt="login"
+          width="500rem"
+          height="500rem"
+          style={{ alignSelf: "flex-end", marginLeft: "-5rem" }}
+        />
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <Container
+          maxWidth="sm"
+          sx={{
+            marginTop: "3rem",
+            marginBottom: "3rem",
+            backgroundColor: "rgb(173, 2, 83)",
+            borderRadius: "10px",
+            boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
+          }}
         >
-          <Typography
-            variant="h5"
-            sx={{
-              color: "antiquewhite",
-            }}
+          <Box
+            component="form"
+            noValidate
+            className="mt-5 p-5 pt-5"
+            onSubmit={formik.handleSubmit}
           >
-            Welcome back!
-          </Typography>
-          <Box>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  fullWidth
-                  required
-                  label="Email"
-                  type="email"
-                  name="email"
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
-                  error={
-                    formik.touched.email && formik.errors.email ? true : false
-                  }
-                  helperText={formik.touched.email && formik.errors.email}
-                  InputProps={{
-                    style: { color: "antiquewhite" },
-                  }}
-                  InputLabelProps={{
-                    style: { color: "antiquewhite" },
-                  }}
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "antiquewhite",
-                      },
-                    },
-                  }}
-                />
-              </Grid>
-
-              <Grid item xs={12} sm={12}>
-                <TextField
-                  fullWidth
-                  required
-                  label="Password"
-                  name="password"
-                  type="password"
-                  value={formik.values.password}
-                  onChange={formik.handleChange}
-                  error={
-                    formik.touched.password && formik.errors.password
-                      ? true
-                      : false
-                  }
-                  helperText={formik.touched.password && formik.errors.password}
-                  InputProps={{
-                    style: { color: "antiquewhite" },
-                  }}
-                  InputLabelProps={{
-                    style: { color: "antiquewhite" },
-                  }}
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      "& fieldset": {
-                        borderColor: "antiquewhite",
-                      },
-                    },
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <Button
-                  fullWidth
-                  type="submit"
-                  variant="contained"
-                  startIcon={<PersonAdd />}
-                  disabled={isSigninDisabled}
-                >
-                  {isSigninDisabled ? (
-                    <CircularProgress size={24} color="primary" />
-                  ) : (
-                    "Signin"
-                  )}
-                </Button>
-              </Grid>
-
-              <Grid item xs={4}></Grid>
-              <Grid item xs={12} sm={4}>
-                <Button
-                  fullWidth
-                  variant="contained"
-                  onClick={formik.handleReset}
-                  color="error"
-                  startIcon={<DeleteIcon />}
-                >
-                  Clear
-                </Button>
-              </Grid>
-              <Grid item xs={4}></Grid>
-            </Grid>
-          </Box>
-        </Box>
-        <Grid container spacing={2}>
-          <Grid item>
             <Typography
+              variant="h5"
               sx={{
-                color: "white",
-                marginTop: "-2rem",
+                color: "antiquewhite",
               }}
             >
-              Don't have an account?
+              Welcome back!
             </Typography>
-            <Button variant="link">
-              <Link to={"/register"} style={{ fontWeight: "bolder" }}>
-                Sign up
-              </Link>
-            </Button>
+            <Box>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    fullWidth
+                    required
+                    label="Email"
+                    type="email"
+                    name="email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.email && formik.errors.email ? true : false
+                    }
+                    helperText={formik.touched.email && formik.errors.email}
+                    InputProps={{
+                      style: { color: "antiquewhite" },
+                    }}
+                    InputLabelProps={{
+                      style: { color: "antiquewhite" },
+                    }}
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        "& fieldset": {
+                          borderColor: "antiquewhite",
+                        },
+                      },
+                    }}
+                  />
+                </Grid>
+
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    fullWidth
+                    required
+                    label="Password"
+                    name="password"
+                    type="password"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.password && formik.errors.password
+                        ? true
+                        : false
+                    }
+                    helperText={
+                      formik.touched.password && formik.errors.password
+                    }
+                    InputProps={{
+                      style: { color: "antiquewhite" },
+                    }}
+                    InputLabelProps={{
+                      style: { color: "antiquewhite" },
+                    }}
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        "& fieldset": {
+                          borderColor: "antiquewhite",
+                        },
+                      },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Button
+                    fullWidth
+                    type="submit"
+                    variant="contained"
+                    startIcon={<PersonAdd />}
+                    disabled={isSigninDisabled}
+                  >
+                    {isSigninDisabled ? (
+                      <CircularProgress size={24} color="primary" />
+                    ) : (
+                      "Signin"
+                    )}
+                  </Button>
+                </Grid>
+
+                <Grid item xs={12} sm={4}>
+                  <Button
+                    fullWidth
+                    variant="contained"
+                    onClick={formik.handleReset}
+                    color="error"
+                    startIcon={<DeleteIcon />}
+                  >
+                    Clear
+                  </Button>
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+          <Grid container spacing={2}>
+            <Grid item>
+              <Typography
+                sx={{
+                  color: "white",
+                  marginTop: "-2rem",
+                }}
+              >
+                Don't have an account?
+              </Typography>
+              <Button variant="link">
+                <Link to={"/register"} style={{ fontWeight: "bolder" }}>
+                  Sign up
+                </Link>
+              </Button>
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
-      <img
-        src={flatGif}
-        alt="login"
-        width="500rem"
-        height="500rem"
-        style={{ width: "40rem", alignSelf: "flex-end", marginLeft: "-5rem" }}
-      />
-    </div>
+        </Container>
+      </Grid>
+    </Grid>
   );
 }
 

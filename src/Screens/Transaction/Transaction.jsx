@@ -79,6 +79,7 @@ const Transaction = () => {
 
   const postTransactionAccount = (values) => {
     setIsSubmitDisabled(true);
+    console.log(values);
     axios
       .post(`http://localhost:8090/transaction/accounts`, values, {
         headers: {
@@ -93,17 +94,22 @@ const Transaction = () => {
       .catch((error) => {
         setIsSubmitDisabled(false);
         console.log(error);
+        alert(`${error.name}: ${error.message}`);
       });
   };
 
   const addBalance = (values) => {
     setIsSubmitDisabled(true);
     axios
-      .post("http://localhost:8090/transaction/transactions/add-balance", values, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      .post(
+        "http://localhost:8090/transaction/transactions/add-balance",
+        values,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((res) => {
         setIsSubmitDisabled(false);
         console.log(res.data);
@@ -111,6 +117,7 @@ const Transaction = () => {
       .catch((error) => {
         setIsSubmitDisabled(false);
         console.log(error);
+        alert(`${error.name}: ${error.message}`);
       });
   };
 
@@ -126,10 +133,12 @@ const Transaction = () => {
       .then((res) => {
         setIsSubmitDisabled(false);
         console.log(res.data);
+        alert("Account created successfully.");
       })
       .catch((error) => {
         setIsSubmitDisabled(false);
         console.log(error);
+        alert(`${error.name}: ${error.message}`);
       });
   };
 
@@ -580,7 +589,6 @@ const Transaction = () => {
         isWithBalancePressed == false && (
           <img src={dashboardImage} alt="Dashboard image" />
         )} */}
-        
     </div>
   );
 };
