@@ -12,24 +12,25 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { Box } from "@mui/joy";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useFormik } from "formik";
-import { signupUser } from "../../Components/Service/UserService";
 import { roles, genders } from "../../Assets/data/enums";
-import { useStyles } from "../../__test__/themes/Themes";
 import * as Yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import register from "../../Assets/Images/login.gif";
+import axios from "axios";
 // import "./Register.css"
 
 const Register = () => {
   const nav = useNavigate();
   const [isSignupDisabled, setIsSignupDisabled] = useState(false);
+
+  const signup_url =
+    "http://localhost:8090/authentication/api/v1/auth/register";
 
   const formikValues = {
     firstname: "",
@@ -73,12 +74,26 @@ const Register = () => {
   const formik = useFormik({
     initialValues: formikValues,
     validationSchema: formikValidationSchema,
-    onSubmit: async (values) => {
+    onSubmit: (values) => {
       setIsSignupDisabled(true);
-      const { confirmPassword, ...formData } = values;
-      console.log("Values: ", formData);
-      await signupUser(formData);
-      formik.resetForm();
+      axios
+        .post(signup_url, values, {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+            "Access-Control-Allow-Headers":
+              "Origin, X-Requested-With, Content-Type, Accept",
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          setIsSignupDisabled(false);
+          nav("/signin");
+        })
+        .catch((error) => {
+          alert(`${error}`);
+          setIsSignupDisabled(false);
+        });
     },
   });
 

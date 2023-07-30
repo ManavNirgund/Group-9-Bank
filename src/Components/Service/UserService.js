@@ -1,43 +1,44 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 // import { useAuth } from "../auth";
 
-const signup_url = "http://localhost:8090/authentication/api/v1/auth/register";
 // const signin_url = "http://localhost:8080/api/v1/auth/login";
 
-export const signupUser = async (values) => {
-  axios.post(signup_url, values, {
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      "Access-Control-Allow-Headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
-    },
-  })
-  .then((res) => {
-    console.log(res.data)
-    setIsSignupDisabled(false);
-    nav("/signin");
-  })
-  .catch((error) => {
-    alert(`${error}`)
-  });
-  // const response = await fetch(signup_url, {
-  //   method: "POST",
-  //   mode: "no-cors",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(values),
-  // });
+const nav = useNavigate();
 
-  // if (!response.ok) {
-  //   const errorData = await response.json();
-  //   throw new Error(errorData.message);
-  // }
+// export const signupUser = async (values) => {
+//   axios.post(signup_url, values, {
+//     headers: {
+//       "Access-Control-Allow-Origin": "*",
+//       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+//       "Access-Control-Allow-Headers":
+//         "Origin, X-Requested-With, Content-Type, Accept",
+//     },
+//   })
+//   .then((res) => {
+//     console.log(res.data)
+//     nav("/signin");
+//   })
+//   .catch((error) => {
+//     alert(`${error}`)
+//   });
+//   // const response = await fetch(signup_url, {
+//   //   method: "POST",
+//   //   mode: "no-cors",
+//   //   headers: {
+//   //     "Content-Type": "application/json",
+//   //   },
+//   //   body: JSON.stringify(values),
+//   // });
 
-  // console.log("Registered: ", values);
-};
+//   // if (!response.ok) {
+//   //   const errorData = await response.json();
+//   //   throw new Error(errorData.message);
+//   // }
+
+//   // console.log("Registered: ", values);
+// };
 
 // export const signinUser = (values, auth) => {
 //   axios.post("http://localhost:8080/api/v1/auth/login", values)

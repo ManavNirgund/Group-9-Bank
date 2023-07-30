@@ -75,7 +75,7 @@ const DashboardNav = () => {
       {/* {userType === "CUSTOMER" ? customerTable : adminTable} */}
 
       {transaction && (
-        // <TableContainer component={Paper} sx={{ backgroundColor: "#D9D9D9" }}>
+        <TableContainer component={Paper} sx={{ backgroundColor: "#D9D9D9" }}>
           <Table sx={tableStyle} aria-label="Table">
             <TableHead>
               <TableRow>
@@ -112,7 +112,7 @@ const DashboardNav = () => {
               ))}
             </TableBody>
           </Table>
-        // </TableContainer>
+        </TableContainer>
       )}
       <img src={dashboardImage} alt="Dashboard Image"/>
     </div>
