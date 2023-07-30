@@ -13,6 +13,14 @@ export const signupUser = async (values) => {
       "Access-Control-Allow-Headers":
         "Origin, X-Requested-With, Content-Type, Accept",
     },
+  })
+  .then((res) => {
+    console.log(res.data)
+    setIsSignupDisabled(false);
+    nav("/signin");
+  })
+  .catch((error) => {
+    alert(`${error}`)
   });
   // const response = await fetch(signup_url, {
   //   method: "POST",

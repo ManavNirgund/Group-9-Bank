@@ -34,9 +34,14 @@ const Transaction = () => {
     formikCreateTrasaction.setFieldValue("accountNumber", number.toString());
   }, []);
 
+  let isAdmin = JSON.parse(localStorage.getItem("asAdmin"));
+
   const [isCreateTransPressed, setIsCreateTransPressed] = useState(false);
   const [isAddBalancePressed, setIsAddBalancePressed] = useState(false);
   const [isWithBalancePressed, setIsWithBalancePressed] = useState(false);
+
+  const [accounts, setAccounts] = useState(null);
+
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
 
   const token = localStorage.getItem("token");
@@ -76,27 +81,6 @@ const Transaction = () => {
   //   // setGeneratedNumber(number);
   //   formikCreateTrasaction.setFieldValue("accountNumber", number.toString())
   // }
-
-  const postTransactionAccount = (values) => {
-    setIsSubmitDisabled(true);
-    console.log(values);
-    axios
-      .post(`http://localhost:8090/transaction/accounts`, values, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        setIsSubmitDisabled(false);
-        console.log("Trans: ", res.data);
-      })
-      .catch((error) => {
-        setIsSubmitDisabled(false);
-        console.log(error);
-        alert(`${error.name}: ${error.message}`);
-      });
-  };
 
   const addBalance = (values) => {
     setIsSubmitDisabled(true);
@@ -142,15 +126,75 @@ const Transaction = () => {
       });
   };
 
+  const allUsers = () => {
+    let token = localStorage.getItem("token");
+    axios
+      .get(`http://localhost:8090/transaction/accounts`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setAccounts(res.data);
+      })
+      .catch((error) => {
+        alert(`Error retrieving transaction data ${error.response.data}`);
+      });
+  };
+
   const formikCreateTrasaction = useFormik({
     initialValues: transValues,
-    onSubmit: (values) => postTransactionAccount(values),
+    onSubmit: (values) => {
+      setIsSubmitDisabled(true);
+      console.log(values);
+      axios
+        .post(`http://localhost:8090/transaction/accounts`, values, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          setIsSubmitDisabled(false);
+          console.log("Trans: ", res.data);
+        })
+        .catch((error) => {
+          setIsSubmitDisabled(false);
+          console.log(error);
+          alert(`${error.name}: ${error.message}`);
+        });
+    },
     validationSchema: validationSchemaCreateTrans,
   });
 
   const formikAddBalance = useFormik({
     initialValues: addBalanceValues,
-    onSubmit: (values) => addBalance(values),
+    onSubmit: (values) => {
+      setIsSubmitDisabled(true);
+      axios
+        .post(
+          "http://localhost:8090/transaction/transactions/add-balance",
+          values,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((res) => {
+          setIsSubmitDisabled(false);
+          console.log(res.data);
+          console.log(res.data);
+        })
+        .catch((error) => {
+          setIsSubmitDisabled(false);
+          console.log(error);
+          alert(`${error.response.data}`);
+        });
+    },
     validationSchema: validationSchemaAddBalance,
   });
 
@@ -164,6 +208,39 @@ const Transaction = () => {
     <div>
       {/* Welcome {name} */}
       <div>
+        {isAdmin && (
+          <Button
+            variant={isCreateTransPressed === true ? "contained" : "outlined"}
+            onClick={() => {
+              setIsCreateTransPressed(false);
+              setIsAddBalancePressed(false);
+              setIsWithBalancePressed(false);
+              allUsers();
+            }}
+            sx={{
+              border: "none",
+              marginTop: "0.5rem",
+              marginBottom: "0.5rem",
+              marginRight: "8px",
+              color: "black",
+              border: "2px solid #870040",
+              fontSize: "1rem",
+              backgroundColor:
+                isCreateTransPressed === true ? "antiquewhite" : "inherit",
+              "&:hover": {
+                border: "none",
+                // backgroundColor: "rgba(0, 0, 0, 0)",
+                // color: "white",
+              },
+              "&:active": {
+                border: "none",
+              },
+            }}
+          >
+            {" "}
+            All users{" "}
+          </Button>
+        )}
         <Button
           variant={isCreateTransPressed === true ? "contained" : "outlined"}
           onClick={() => {

@@ -87,7 +87,7 @@ const Loan = () => {
     }
     console.log("valuesWithId: ", valuesWithId)
     axios
-      .post("http://localhost:8082/loans/apply", valuesWithId, {
+      .post("http://localhost:8090/loans/apply", valuesWithId, {
         headers: {
           "Content-Type": "application.json",
         },

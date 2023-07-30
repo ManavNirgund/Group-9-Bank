@@ -78,8 +78,6 @@ const Register = () => {
       const { confirmPassword, ...formData } = values;
       console.log("Values: ", formData);
       await signupUser(formData);
-      setIsSignupDisabled(false);
-      nav("/signin");
       formik.resetForm();
     },
   });

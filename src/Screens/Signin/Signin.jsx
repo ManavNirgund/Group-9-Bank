@@ -16,8 +16,6 @@ import * as Yup from "yup";
 import { PersonAdd } from "@mui/icons-material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
-import login from "../../Assets/Images/login-pic.svg";
-import loginPage from "../../Assets/Images/login-page.gif";
 import flatGif from "../../Assets/Images/flat-gif.gif";
 
 function Signin() {
@@ -59,16 +57,20 @@ function Signin() {
     onSubmit: (values) => {
       setIsSigninDisabled(true);
       axios
-        .post("http://localhost:8090/authentication/api/v1/auth/login", values, {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods":
-              "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-            "Access-Control-Allow-Headers":
-              "Origin, X-Requested-With, Content-Type, Accept",
-          },
-        })
+        .post(
+          "http://localhost:8090/authentication/api/v1/auth/login",
+          values,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              // "Access-Control-Allow-Origin": "*",
+              // "Access-Control-Allow-Methods":
+              //   "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+              // "Access-Control-Allow-Headers":
+              //   "Origin, X-Requested-With, Content-Type, Accept",
+            },
+          }
+        )
         .then((res) => {
           setIsSigninDisabled(false);
           const token = res.data.access_token;
@@ -78,12 +80,18 @@ function Signin() {
           localStorage.setItem("email", values.email);
           console.log(values.email, values.password, token);
           auth.login(values.email, values.password, token);
+          if (values.email == "admin@axis.com") {
+            localStorage.setItem("asAdmin", true);
+          } else {
+            localStorage.setItem("asAdmin", false);
+          }
           formik.resetForm();
           nav(redirectPath, { replace: true });
         })
         .catch((res) => {
-          alert(res);
+          alert(res.response.data);
           setIsSigninDisabled(false);
+          formik.resetForm();
         });
     },
   });

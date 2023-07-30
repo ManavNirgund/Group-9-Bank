@@ -26,7 +26,7 @@ export const genders = {
 };
 
 export const account = {
-  SAVINGS: "Savings",
+  SAVINGS: "SAVINGS",
   CURRENT: "Current",
   LOAN: "Loan",
 };
