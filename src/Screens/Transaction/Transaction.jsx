@@ -615,7 +615,6 @@ const Transaction = () => {
                 <TableCell sx={headerCellStyle}>Balance</TableCell>
                 <TableCell sx={headerCellStyle}>Joined on</TableCell>
                 <TableCell sx={headerCellStyle}>Email</TableCell>
-                <TableCell sx={headerCellStyle}>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -628,16 +627,6 @@ const Transaction = () => {
                   <TableCell sx={cellStyle}>{item.balance}</TableCell>
                   <TableCell sx={cellStyle}>{item.createdAt}</TableCell>
                   <TableCell sx={cellStyle}>{item.email}</TableCell>
-                  <TableCell sx={cellStyle}>
-                    {/* <Button variant="outlined" sx={{ backgroundColor: "#FFC107", color: "#000" }}> */}
-                    <Button variant="contained" color="warning">
-                      Edit
-                    </Button>{" "}
-                    {/* <Button variant="outlined" sx={{ backgroundColor: "#DC3545", color: "#000" }}> */}
-                    <Button variant="contained" color="error">
-                      Delete
-                    </Button>
-                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
